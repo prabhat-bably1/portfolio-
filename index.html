@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+/* HEADER */
+header{
+    padding:20px;
+    text-align:center;
+    background:#020617;
+}
+
+/* HERO */
+.hero{
+    padding:50px;
+    text-align:center;
+}
+.hero h1{
+    font-size:30px;
+}
+.btn{
+    padding:10px 20px;
+    background:#00c853;
+    border:none;
+    border-radius:5px;
+    color:white;
+    cursor:pointer;
+}
+
+/* PROJECTS */
+.projects{
+    padding:20px;
+}
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+    margin:10px;
+}
+.card button{
+    margin-top:10px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:15px;
+    background:#020617;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>💻 Prabhat Web Developer</h2>
+</header>
+
+<div class="hero">
+<h1>I Create Professional Websites 🚀</h1>
+<p>Affordable websites for your business</p>
+<button class="btn">Contact Me</button>
+</div>
+
+<div class="projects">
+
+<h2>My Work</h2>
+
+<div class="card">
+<h3>🏋️ Gym Website</h3>
+<p>Modern fitness website with clean UI</p>
+<button onclick="openDemo('gym')">View Demo</button>
+</div>
+
+<div class="card">
+<h3>💇 Salon Website</h3>
+<p>Beauty salon website design</p>
+<button onclick="openDemo('salon')">View Demo</button>
+</div>
+
+<div class="card">
+<h3>🏢 Business Website</h3>
+<p>Simple business landing page</p>
+<button onclick="openDemo('business')">View Demo</button>
+</div>
+
+</div>
+
+<footer>
+<p>Contact: yournumber | yourmail@gmail.com</p>
+</footer>
+
+<script>
+function openDemo(type){
+    if(type==="gym"){
+        document.body.innerHTML = `
+        <h1 style="text-align:center;">🏋️ Gym Website</h1>
+        <p style="text-align:center;">Welcome to our fitness center</p>
+        <div style="text-align:center;">
+        <button onclick="location.reload()">⬅ Back</button>
+        </div>`;
+    }
+
+    if(type==="salon"){
+        document.body.innerHTML = `
+        <h1 style="text-align:center;">💇 Salon Website</h1>
+        <p style="text-align:center;">Beauty & Hair services</p>
+        <div style="text-align:center;">
+        <button onclick="location.reload()">⬅ Back</button>
+        </div>`;
+    }
+
+    if(type==="business"){
+        document.body.innerHTML = `
+        <h1 style="text-align:center;">🏢 Business Website</h1>
+        <p style="text-align:center;">Grow your business online</p>
+        <div style="text-align:center;">
+        <button onclick="location.reload()">⬅ Back</button>
+        </div>`;
+    }
+}
+</script>
+
+</body>
+</html>
