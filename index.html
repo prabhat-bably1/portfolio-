@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>My Portfolio</title>
+<title>Prabhat Developer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
     margin:0;
     font-family:sans-serif;
-    background:#0f172a;
+    background:linear-gradient(135deg,#0f172a,#020617);
     color:white;
 }
 
@@ -16,45 +16,78 @@ body{
 header{
     padding:20px;
     text-align:center;
-    background:#020617;
+    font-size:20px;
+    font-weight:bold;
 }
 
 /* HERO */
 .hero{
-    padding:50px;
     text-align:center;
+    padding:50px 20px;
 }
 .hero h1{
-    font-size:30px;
+    font-size:32px;
 }
 .btn{
-    padding:10px 20px;
-    background:#00c853;
+    padding:12px 25px;
+    background:#00ff88;
     border:none;
-    border-radius:5px;
-    color:white;
+    border-radius:8px;
+    color:black;
+    font-weight:bold;
     cursor:pointer;
 }
 
 /* PROJECTS */
 .projects{
     padding:20px;
+    text-align:center;
 }
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
 .card{
-    background:#1e293b;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
     padding:20px;
-    border-radius:10px;
     margin:10px;
+    border-radius:15px;
+    width:260px;
+    transition:0.3s;
 }
+.card:hover{
+    transform:scale(1.05);
+}
+
 .card button{
     margin-top:10px;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+    background:#00c853;
+    color:white;
 }
 
 /* FOOTER */
 footer{
     text-align:center;
-    padding:15px;
-    background:#020617;
+    padding:20px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:12px 15px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
 }
 </style>
 </head>
@@ -62,85 +95,61 @@ footer{
 <body>
 
 <header>
-<h2>💻 Prabhat Web Developer</h2>
+💻 Prabhat Web Developer
 </header>
 
 <div class="hero">
-<h1>I Create Professional Websites 🚀</h1>
-<p>Affordable websites for your business</p>
-<button class="btn">Contact Me</button>
+<h1>I Build Websites That Bring Clients 🚀</h1>
+<p>Affordable & modern websites for your business</p>
+<br>
+<a href="https://wa.me/919876543210" class="btn">Contact on WhatsApp</a>
 </div>
 
 <div class="projects">
-
 <h2>My Work</h2>
+
+<div class="cards">
 
 <div class="card">
 <h3>🏋️ Gym Website</h3>
-<p>Modern fitness website with clean UI</p>
+<p>Modern fitness design</p>
 <button onclick="openDemo('gym')">View Demo</button>
 </div>
 
 <div class="card">
 <h3>💇 Salon Website</h3>
-<p>Beauty salon website design</p>
+<p>Luxury beauty design</p>
 <button onclick="openDemo('salon')">View Demo</button>
 </div>
 
 <div class="card">
 <h3>🏢 Business Website</h3>
-<p>Simple business landing page</p>
+<p>Professional business site</p>
 <button onclick="openDemo('business')">View Demo</button>
 </div>
 
 </div>
+</div>
 
 <footer>
-<p>Contact: Whatsapp Number:- +917064855983| prabhatr.seth4@gmail.com|Contact me in WhatsApp Any time</p>
+<p>📞 +917064855983 | 📧 prabhatr.seth4@gmail.com</p>
 </footer>
 
+<a class="whatsapp" href="https://wa.me/+917064855983">💬 Chat</a>
+
 <script>
 function openDemo(type){
     if(type==="gym"){
-        document.body.innerHTML = `
-        <h1 style="text-align:center;">🏋️ Gym Website</h1>
-        <p style="text-align:center;">Welcome to our fitness center</p>
-        <div style="text-align:center;">
-        <button onclick="location.reload()">⬅ Back</button>
-        </div>`;
+        window.location.href="gym.html";
     }
-
     if(type==="salon"){
-        document.body.innerHTML = `
-        <h1 style="text-align:center;">💇 Salon Website</h1>
-        <p style="text-align:center;">Beauty & Hair services</p>
-        <div style="text-align:center;">
-        <button onclick="location.reload()">⬅ Back</button>
-        </div>`;
+        window.location.href="salon.html";
     }
-
     if(type==="business"){
-        document.body.innerHTML = `
-        <h1 style="text-align:center;">🏢 Business Website</h1>
-        <p style="text-align:center;">Grow your business online</p>
-        <div style="text-align:center;">
-        <button onclick="location.reload()">⬅ Back</button>
-        </div>`;
+        window.location.href="business.html";
     }
 }
 </script>
-<script>
-function openDemo(type){
-    if(type==="gym"){
-        window.location.href = "gym.html";
-    }
-    if(type==="salon"){
-        window.location.href = "salon.html";
-    }
-    if(type==="business"){
-        window.location.href = "business.html";
-    }
-}
-</script>
+
 </body>
 </html>
