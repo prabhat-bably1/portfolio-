@@ -3,68 +3,248 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mobile Repairing Shop Demo</title>
+  <title>Mobile Repairing Shop</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:Arial,sans-serif;background:#0f172a;color:white}
-    header{padding:18px 24px;background:#111827;display:flex;justify-content:space-between;align-items:center}
-    header a{text-decoration:none;color:white;margin-left:18px}
-    .hero{padding:90px 20px;text-align:center;background:linear-gradient(135deg,#1e293b,#0f172a)}
-    .hero h1{font-size:40px;margin-bottom:15px}
-    .hero p{max-width:700px;margin:auto;color:#cbd5e1;line-height:1.7}
-    .btn{display:inline-block;margin-top:25px;padding:12px 24px;background:#38bdf8;color:#082f49;text-decoration:none;border-radius:10px;font-weight:bold}
-    .section{padding:60px 20px;max-width:1100px;margin:auto}
-    .section h2{text-align:center;font-size:32px;margin-bottom:30px}
-    .cards{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
-    .card{background:#111827;padding:24px;border-radius:16px;width:300px;border:1px solid rgba(255,255,255,.08)}
-    .card p{line-height:1.7;color:#cbd5e1}
-    footer{text-align:center;padding:25px;background:#111827;color:#cbd5e1}
+    body{
+      font-family:Arial,sans-serif;
+      background:#0f172a;
+      color:#fff;
+    }
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.94);
+      backdrop-filter:blur(10px);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 24px;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .logo{
+      font-size:24px;
+      font-weight:bold;
+      color:#38bdf8;
+    }
+    nav{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      font-size:15px;
+    }
+    .hero{
+      min-height:88vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:60px 20px;
+      background:linear-gradient(135deg,#0f172a,#1e293b,#0ea5e9);
+    }
+    .hero-wrap{
+      max-width:1200px;
+      width:100%;
+      display:grid;
+      grid-template-columns:1.15fr 1fr;
+      gap:30px;
+      align-items:center;
+    }
+    .hero-text h1{
+      font-size:50px;
+      line-height:1.2;
+      margin-bottom:18px;
+    }
+    .hero-text p{
+      font-size:18px;
+      line-height:1.8;
+      color:#dbeafe;
+      margin-bottom:24px;
+      max-width:650px;
+    }
+    .btns{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding:14px 26px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+    .btn-primary{
+      background:#38bdf8;
+      color:#082f49;
+    }
+    .btn-secondary{
+      border:1px solid rgba(255,255,255,0.25);
+      color:#fff;
+    }
+    .btn:hover{
+      transform:translateY(-3px);
+    }
+    .service-box{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.25);
+    }
+    .service-box h3{
+      font-size:24px;
+      margin-bottom:16px;
+      color:#7dd3fc;
+    }
+    .service-box ul{
+      list-style:none;
+    }
+    .service-box li{
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      color:#dbeafe;
+    }
+    .section{
+      max-width:1200px;
+      margin:auto;
+      padding:70px 20px;
+    }
+    .section h2{
+      text-align:center;
+      font-size:34px;
+      margin-bottom:12px;
+    }
+    .section-sub{
+      text-align:center;
+      color:#94a3b8;
+      margin-bottom:35px;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:22px;
+    }
+    .card{
+      background:#1e293b;
+      border-radius:20px;
+      padding:24px;
+      box-shadow:0 14px 30px rgba(0,0,0,0.22);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .card h3{
+      margin-bottom:12px;
+      color:#38bdf8;
+      font-size:22px;
+    }
+    .card p{
+      line-height:1.8;
+      color:#cbd5e1;
+    }
+    .cta{
+      text-align:center;
+      padding:70px 20px;
+      background:linear-gradient(135deg,#0c4a6e,#0369a1);
+    }
+    .cta h2{
+      font-size:34px;
+      margin-bottom:14px;
+    }
+    .cta p{
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+      color:#e0f2fe;
+      margin-bottom:22px;
+    }
+    footer{
+      text-align:center;
+      padding:22px;
+      background:#0f172a;
+      color:#94a3b8;
+    }
+    @media(max-width:900px){
+      .hero-wrap{grid-template-columns:1fr}
+    }
+    @media(max-width:768px){
+      header{flex-direction:column;gap:12px}
+      .hero-text h1{font-size:36px}
+    }
   </style>
 </head>
 <body>
   <header>
-    <h2>📱 Smart Mobile Care</h2>
+    <div class="logo">📱 Mobile Shop</div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="#services">Services</a>
-      <a href="#features">Why Us</a>
-      <a href="#contact">Contact</a>
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Accessories</a>
+      <a href="#">Contact</a>
+      <a href="index.html">Back to Portfolio</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>Fast Mobile Repairing & Software Support</h1>
-    <p>Demo website for a mobile repairing and downloading store with repair services, phone setup, flashing and support features.</p>
-    <a class="btn" href="#services">Explore Services</a>
+    <div class="hero-wrap">
+      <div class="hero-text">
+        <h1>Fast Mobile Repairing & Smart Device Support</h1>
+        <p>
+          A premium local business demo for mobile repairing shops, accessory stores and software service centers.
+          Modern design, clear services and strong customer-friendly layout.
+        </p>
+        <div class="btns">
+          <a href="#" class="btn btn-primary">Book Repair</a>
+          <a href="#" class="btn btn-secondary">Our Services</a>
+        </div>
+      </div>
+
+      <div class="service-box">
+        <h3>Quick Service Highlights</h3>
+        <ul>
+          <li>✔ Screen and touch repair</li>
+          <li>✔ Software update and flashing</li>
+          <li>✔ Mobile accessories sales</li>
+          <li>✔ Fast customer support layout</li>
+          <li>✔ Strong local business presence</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <section class="section" id="services">
-    <h2>Repair Services</h2>
+  <section class="section">
+    <h2>Popular Services</h2>
+    <p class="section-sub">A polished website structure for mobile repair shops and gadget businesses.</p>
+
     <div class="cards">
-      <div class="card"><h3>Screen Replacement</h3><p>Fast and reliable cracked screen replacement service.</p></div>
-      <div class="card"><h3>Battery & Charging Repair</h3><p>Charging issue fixing, battery replacement and connector support.</p></div>
-      <div class="card"><h3>Software & Flashing</h3><p>Phone unlock, software setup, reset and system installation services.</p></div>
+      <div class="card">
+        <h3>Display Repair</h3>
+        <p>Present cracked screen and touch replacement services with a modern service-focused look.</p>
+      </div>
+      <div class="card">
+        <h3>Software Solutions</h3>
+        <p>Show software installation, unlocking, updates and troubleshooting with easy-to-read sections.</p>
+      </div>
+      <div class="card">
+        <h3>Accessories Corner</h3>
+        <p>Display chargers, headphones, covers and useful mobile products with clean shop cards.</p>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="features">
-    <h2>Why Choose Us</h2>
-    <div class="cards">
-      <div class="card"><h3>Quick Service</h3><p>Same-day repair options for common mobile issues.</p></div>
-      <div class="card"><h3>Trusted Support</h3><p>Safe handling and proper diagnostics before repair work.</p></div>
-      <div class="card"><h3>Affordable Pricing</h3><p>Budget-friendly local shop service for customers.</p></div>
-    </div>
+  <section class="cta">
+    <h2>Make Your Mobile Shop Look More Professional</h2>
+    <p>
+      This demo can be upgraded with real product images, service pricing, customer reviews,
+      store map location and WhatsApp booking button.
+    </p>
+    <a href="#" class="btn btn-primary">Visit Store</a>
   </section>
 
-  <section class="section" id="contact">
-    <h2>Contact</h2>
-    <div class="card" style="max-width:700px;margin:auto;text-align:center">
-      <p>Phone: +91 7064855983</p>
-      <p>Email: prabhatr.seth4@gmail.com</p>
-      <p>Service Type: Mobile Repairing & Download Store</p>
-    </div>
-  </section>
-
-  <footer>Mobile Shop Demo Website by Prabhat Developer</footer>
+  <footer>© 2026 Mobile Repairing Shop Demo</footer>
 </body>
 </html>
