@@ -1,155 +1,446 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Prabhat Developer</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prabhat Developer Portfolio</title>
 
-<style>
-body{
-    margin:0;
-    font-family:sans-serif;
-    background:linear-gradient(135deg,#0f172a,#020617);
-    color:white;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-/* HEADER */
-header{
-    padding:20px;
-    text-align:center;
-    font-size:20px;
-    font-weight:bold;
-}
+    body{
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #020617, #111827);
+      color: white;
+    }
 
-/* HERO */
-.hero{
-    text-align:center;
-    padding:50px 20px;
-}
-.hero h1{
-    font-size:32px;
-}
-.btn{
-    padding:12px 25px;
-    background:#00ff88;
-    border:none;
-    border-radius:8px;
-    color:black;
-    font-weight:bold;
-    cursor:pointer;
-}
+    a{
+      text-decoration:none;
+    }
 
-/* PROJECTS */
-.projects{
-    padding:20px;
-    text-align:center;
-}
-.cards{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-}
+    /* HEADER */
+    header{
+      padding: 22px 15px;
+      text-align:center;
+      font-size: 26px;
+      font-weight: bold;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.card{
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
-    padding:20px;
-    margin:10px;
-    border-radius:15px;
-    width:260px;
-    transition:0.3s;
-}
-.card:hover{
-    transform:scale(1.05);
-}
+    /* HERO */
+    .hero{
+      text-align:center;
+      padding: 70px 20px 50px;
+      max-width: 900px;
+      margin: auto;
+    }
 
-.card button{
-    margin-top:10px;
-    padding:10px;
-    border:none;
-    border-radius:5px;
-    background:#00c853;
-    color:white;
-}
+    .hero h1{
+      font-size: 42px;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
 
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:20px;
-}
+    .hero p{
+      font-size: 18px;
+      color: #cbd5e1;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: auto;
+    }
 
-/* WHATSAPP */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:white;
-    padding:12px 15px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:bold;
-}
-</style>
+    .hero-buttons{
+      margin-top: 30px;
+      display:flex;
+      gap:15px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding: 14px 26px;
+      border: none;
+      border-radius: 10px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      background: #00ff88;
+      transition: 0.3s;
+      box-shadow: 0 10px 25px rgba(0,255,136,0.25);
+    }
+
+    .btn:hover{
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary{
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: none;
+    }
+
+    .btn-secondary:hover{
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* SECTION TITLE */
+    .section-title{
+      text-align:center;
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      color:#cbd5e1;
+      margin-bottom: 35px;
+      padding: 0 20px;
+    }
+
+    /* PROJECTS */
+    .projects{
+      padding: 30px 20px 70px;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .cards{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap: 22px;
+    }
+
+    .card{
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      padding: 24px 20px;
+      border-radius: 18px;
+      width: 290px;
+      transition: 0.35s;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+      text-align:left;
+    }
+
+    .card:hover{
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.35);
+    }
+
+    .card h3{
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .card p{
+      font-size: 15px;
+      color: #d1d5db;
+      line-height: 1.6;
+      min-height: 72px;
+    }
+
+    .card button{
+      margin-top: 16px;
+      padding: 11px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #00c853;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .card button:hover{
+      background: #00e676;
+      color: #052e16;
+    }
+
+    /* ABOUT */
+    .about{
+      max-width: 950px;
+      margin: auto;
+      padding: 10px 20px 65px;
+      text-align:center;
+    }
+
+    .about-box{
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 28px 22px;
+      color:#dbeafe;
+      line-height: 1.8;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* CONTACT */
+    .contact{
+      padding: 0 20px 70px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-card{
+      background: rgba(255,255,255,0.05);
+      border-radius: 18px;
+      padding: 22px;
+      text-align:center;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .contact-card h3{
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .contact-card p, .contact-card a{
+      color:#d1d5db;
+      word-break: break-word;
+    }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      padding: 25px 15px 90px;
+      color:#cbd5e1;
+      font-size:15px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* WHATSAPP */
+    .whatsapp{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#25D366;
+      color:white;
+      padding:13px 18px;
+      border-radius:50px;
+      font-weight:bold;
+      box-shadow: 0 10px 25px rgba(37,211,102,0.35);
+      z-index:999;
+    }
+
+    .whatsapp:hover{
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px){
+      header{
+        font-size: 21px;
+      }
+
+      .hero{
+        padding: 55px 16px 35px;
+      }
+
+      .hero h1{
+        font-size: 30px;
+      }
+
+      .hero p{
+        font-size: 16px;
+      }
+
+      .section-title{
+        font-size: 28px;
+      }
+
+      .card{
+        width: 100%;
+        max-width: 340px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-💻 Prabhat Web Developer
-</header>
+  <header>
+    💻 Prabhat Web Developer
+  </header>
 
-<div class="hero">
-<h1>I Build Websites That Bring Clients 🚀</h1>
-<p>Affordable & modern websites for your business</p>
-<br>
-<a href="https://wa.me/919876543210" class="btn">Contact on WhatsApp</a>
-</div>
+  <section class="hero">
+    <h1>I Build Modern Websites That Bring Clients 🚀</h1>
+    <p>
+      I create modern, responsive and attractive websites for businesses, personal brands and startups.
+      From portfolio sites to shop websites and custom business demos — I build designs that look premium and professional.
+    </p>
 
-<div class="projects">
-<h2>My Work</h2>
+    <div class="hero-buttons">
+      <a href="https://wa.me/917064855983" class="btn">Contact on WhatsApp</a>
+      <a href="#projects" class="btn btn-secondary">View My Projects</a>
+    </div>
+  </section>
 
-<div class="cards">
+  <section class="projects" id="projects">
+    <h2 class="section-title">My Work</h2>
+    <p class="section-subtitle">Here are some of the websites and demo projects I have built.</p>
 
-<div class="card">
-<h3>🏋️ Gym Website</h3>
-<p>Modern fitness design</p>
-<button onclick="openDemo('gym')">View Demo</button>
-</div>
+    <div class="cards">
 
-<div class="card">
-<h3>💇 Salon Website</h3>
-<p>Luxury beauty design</p>
-<button onclick="openDemo('salon')">View Demo</button>
-</div>
+      <div class="card">
+        <h3>🏋️ Gym Website</h3>
+        <p>Modern fitness website with strong layout, premium sections and attractive call-to-action design.</p>
+        <button onclick="openDemo('gym')">View Demo</button>
+      </div>
 
-<div class="card">
-<h3>🏢 Business Website</h3>
-<p>Professional business site</p>
-<button onclick="openDemo('business')">View Demo</button>
-</div>
+      <div class="card">
+        <h3>💇 Salon Website</h3>
+        <p>Luxury beauty salon style website with elegant sections, smooth visual flow and polished design.</p>
+        <button onclick="openDemo('salon')">View Demo</button>
+      </div>
 
-</div>
-</div>
+      <div class="card">
+        <h3>🏢 Business Website</h3>
+        <p>Professional business website demo for service companies, agencies and corporate-style brands.</p>
+        <button onclick="openDemo('business')">View Demo</button>
+      </div>
 
-<footer>
-<p>📞 +917064855983 | 📧 prabhatr.seth4@gmail.com|developer.prabhat1@outlook.com</p>
-</footer>
+      <div class="card">
+        <h3>🌾 Sai Samruddhi Jute Agro Enterprises</h3>
+        <p>Business website for jute and agro enterprise showcasing products, company details and brand presence.</p>
+        <button onclick="openDemo('saisamruddhi')">View Demo</button>
+      </div>
 
-<a class="whatsapp" href="https://wa.me/+917064855983">💬 Chat</a>
+      <div class="card">
+        <h3>📱 Mobile Repairing Shop</h3>
+        <p>Store website demo for mobile repairing and downloading services with local business style layout.</p>
+        <button onclick="openDemo('mobileshop')">View Demo</button>
+      </div>
 
-<script>
-function openDemo(type){
-    if(type==="gym"){
-        window.location.href="gym.html";
+      <div class="card">
+        <h3>🛒 Kirana Store Website</h3>
+        <p>Local grocery and daily needs shop website with product-based sections and shop branding.</p>
+        <button onclick="openDemo('kirana')">View Demo</button>
+      </div>
+
+      <div class="card">
+        <h3>🥤 Alok Colddrinks & Snacks</h3>
+        <p>Food and snacks shop website demo with simple attractive design for local business promotion.</p>
+        <button onclick="openDemo('alok')">View Demo</button>
+      </div>
+
+      <div class="card">
+        <h3>📖 My Secret Book</h3>
+        <p>Creative romantic website concept with vintage style, book design, profile ideas and unique UI.</p>
+        <button onclick="openDemo('mysecretbook')">View Demo</button>
+      </div>
+
+      <div class="card">
+        <h3>💰 My Money</h3>
+        <p>Personal finance website project for tracking income, expenses, tax and user dashboard features.</p>
+        <button onclick="openDemo('mymoney')">View Demo</button>
+      </div>
+
+      <div class="card">
+        <h3>🙏 Mithapali Kirttan Mandali</h3>
+        <p>Devotional and cultural website design with traditional look, event content and spiritual branding.</p>
+        <button onclick="openDemo('kirttan')">View Demo</button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-box">
+      Hello, I am <b>Prabhat Ranjan Seth</b>, a frontend web developer who builds modern, responsive
+      and visually attractive websites. I work on business websites, portfolio websites, local shop websites,
+      custom UI pages and unique concept projects. My focus is to create designs that look premium,
+      work properly on mobile and help clients grow their online presence.
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2 class="section-title">Contact Details</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>📞 Phone</h3>
+        <p>+91 7064855983</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>📧 Email</h3>
+        <p>prabhatr.seth4@gmail.com</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>📧 Outlook</h3>
+        <p>developer.prabhat1@outlook.com</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>💬 WhatsApp</h3>
+        <a href="https://wa.me/917064855983" target="_blank">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Prabhat Developer | All Rights Reserved</p>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/917064855983" target="_blank">💬 Chat</a>
+
+  <script>
+    function openDemo(type){
+      if(type === "gym"){
+        window.location.href = "gym.html";
+      }
+      if(type === "salon"){
+        window.location.href = "salon.html";
+      }
+      if(type === "business"){
+        window.location.href = "business.html";
+      }
+      if(type === "saisamruddhi"){
+        window.location.href = "saisamruddhi.html";
+      }
+      if(type === "mobileshop"){
+        window.location.href = "mobileshop.html";
+      }
+      if(type === "kirana"){
+        window.location.href = "kirana.html";
+      }
+      if(type === "alok"){
+        window.location.href = "alok.html";
+      }
+      if(type === "mysecretbook"){
+        window.location.href = "mysecretbook.html";
+      }
+      if(type === "mymoney"){
+        window.location.href = "mymoney.html";
+      }
+      if(type === "kirttan"){
+        window.location.href = "kirttan.html";
+      }
     }
-    if(type==="salon"){
-        window.location.href="salon.html";
-    }
-    if(type==="business"){
-        window.location.href="business.html";
-    }
-}
-</script>
+  </script>
 
 </body>
 </html>
